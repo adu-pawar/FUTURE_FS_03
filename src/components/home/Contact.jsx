@@ -99,7 +99,7 @@ const Contact = () => {
                   <input 
                     type="text" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white focus:outline-none focus:border-primary transition-colors"
-                    placeholder="John"
+                    placeholder="Enter your First Name"
                   />
                 </div>
                 <div>
@@ -107,7 +107,7 @@ const Contact = () => {
                   <input 
                     type="text" 
                     className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Doe"
+                    placeholder="Enter your Last Name"
                   />
                 </div>
               </div>
@@ -117,7 +117,7 @@ const Contact = () => {
                 <input 
                   type="email" 
                   className="w-full bg-white/5 border border-white/10 rounded-xl py-4 px-6 text-white focus:outline-none focus:border-primary transition-colors"
-                  placeholder="john@example.com"
+                  placeholder="Enter your Email"
                 />
               </div>
 
