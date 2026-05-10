@@ -3,6 +3,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, Lock, User, LogIn } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 
+const getErrorMessage = (error) => {
+  if (!error || !error.code) return error.message || 'An unexpected error occurred.';
+  
+  switch (error.code) {
+    case 'auth/email-already-in-use':
+      return 'This email address is already registered. Please log in instead.';
+    case 'auth/invalid-credential':
+    case 'auth/wrong-password':
+    case 'auth/user-not-found':
+      return 'Invalid email or password. Please try again.';
+    case 'auth/weak-password':
+      return 'Your password is too weak. It should be at least 6 characters.';
+    case 'auth/network-request-failed':
+      return 'Network error. Please check your connection and try again.';
+    case 'auth/too-many-requests':
+      return 'Too many failed login attempts. Please try again later.';
+    case 'auth/popup-closed-by-user':
+      return 'Google sign-in was cancelled.';
+    default:
+      return 'Authentication failed. Please try again.';
+  }
+};
+
 const AuthModal = ({ isOpen, onClose }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
@@ -26,7 +49,7 @@ const AuthModal = ({ isOpen, onClose }) => {
       }
       onClose();
     } catch (err) {
-      setError(err.message || 'Failed to authenticate');
+      setError(getErrorMessage(err));
     } finally {
       setLoading(false);
     }
@@ -37,7 +60,7 @@ const AuthModal = ({ isOpen, onClose }) => {
       await loginWithGoogle();
       onClose();
     } catch (err) {
-      setError(err.message || 'Google Sign-in failed');
+      setError(getErrorMessage(err));
     }
   };
 

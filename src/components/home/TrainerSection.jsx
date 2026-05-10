@@ -8,21 +8,21 @@ const trainers = [
     name: 'Alex Johnson',
     specialty: 'CrossFit Expert',
     experience: '8+ Years',
-    image: 'https://www.vectorstock.com/royalty-free-vectors/blank-profile-portrait-man-vectors',
+    image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fe?q=80&w=1974&auto=format&fit=crop',
   },
   {
     id: 2,
     name: 'Jessica Lee',
     specialty: 'Yoga & Pilates',
     experience: '6+ Years',
-    image: 'https://www.vectorstock.com/royalty-free-vectors/blank-profile-portrait-man-vectors',
+    image: 'https://images.unsplash.com/photo-1518611012118-29615539f7ad?q=80&w=2070&auto=format&fit=crop',
   },
   {
     id: 3,
     name: 'David Smith',
     specialty: 'Bodybuilding',
     experience: '10+ Years',
-    image: 'https://www.vectorstock.com/royalty-free-vectors/blank-profile-portrait-man-vectors',
+    image: 'https://images.unsplash.com/photo-149175235542e-00ca631776ce?q=80&w=1974&auto=format&fit=crop',
   }
 ];
 

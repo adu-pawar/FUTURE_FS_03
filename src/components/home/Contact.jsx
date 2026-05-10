@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CheckCircle } from 'lucide-react';
 
 const Contact = () => {
+  const [status, setStatus] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    
+    // Simulate network request
+    setTimeout(() => {
+      setStatus('success');
+      e.target.reset(); // Clear the form
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setStatus(null);
+      }, 5000);
+    }, 1000);
+  };
   return (
     <section id="contact" className="py-24 bg-black relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +92,7 @@ const Contact = () => {
             viewport={{ once: true }}
             className="glass-card p-8 md:p-10"
           >
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-400 mb-2">First Name</label>
@@ -123,9 +140,30 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all shadow-[0_0_20px_rgba(255,0,0,0.3)]">
-                <Send size={18} />
-                <span>Send Message</span>
+              {status === 'success' && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="bg-green-500/10 border border-green-500/30 text-green-400 p-4 rounded-xl flex items-center text-sm"
+                >
+                  <CheckCircle className="mr-3 shrink-0" size={20} />
+                  <span>Message sent successfully! Our team will get back to you soon.</span>
+                </motion.div>
+              )}
+
+              <button 
+                type="submit"
+                disabled={status === 'sending'}
+                className="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-xl font-bold flex items-center justify-center space-x-2 transition-all shadow-[0_0_20px_rgba(255,0,0,0.3)] disabled:opacity-50"
+              >
+                {status === 'sending' ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <Send size={18} />
+                    <span>Send Message</span>
+                  </>
+                )}
               </button>
             </form>
           </motion.div>
