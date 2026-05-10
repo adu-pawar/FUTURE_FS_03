@@ -96,7 +96,7 @@ const MembershipPlans = ({ onJoinClick }) => {
                 ? 'bg-white text-primary hover:bg-gray-100' 
                 : 'bg-primary text-white hover:bg-primary-dark shadow-[0_0_20px_rgba(255,0,0,0.2)]'
               }`}>
-                Join Now
+                JOIN NOW
               </button>
             </motion.div>
           ))}
