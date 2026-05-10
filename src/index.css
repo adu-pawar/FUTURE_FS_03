@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-black text-white font-sans antialiased;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-dark;
+}
+
+/* Glassmorphism Classes */
+.glass {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10;
+}
+
+.glass-card {
+  @apply bg-white/[0.03] backdrop-blur-md border border-white/5 rounded-2xl transition-all duration-300 hover:bg-white/[0.07] hover:border-white/10;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.text-outline-white {
+  -webkit-text-stroke: 1px white;
+  color: transparent;
+}
+
+/* Section Title */
+.section-title {
+  @apply text-4xl md:text-5xl font-bold mb-8 text-center;
+}
+
+.section-subtitle {
+  @apply text-primary uppercase tracking-widest text-sm font-semibold mb-2 text-center block;
+}
