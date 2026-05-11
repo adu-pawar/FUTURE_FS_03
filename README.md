@@ -51,8 +51,6 @@ Titan Fitness Club is a state-of-the-art fitness platform designed for modern gy
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available
 
----
-
-Built with 🔥 by Antigravity
+😄😁😄
