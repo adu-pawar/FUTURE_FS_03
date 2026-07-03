@@ -53,4 +53,8 @@ Titan Fitness Club is a state-of-the-art fitness platform designed for modern gy
 
 This project is open-source and available
 
-😄😁😄
+
+
+
+
+<h3>Vibe Coded</h3>
